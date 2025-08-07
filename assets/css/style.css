@@ -5126,15 +5126,36 @@ a.project-details-text {
 /*sidber contact*/
 
 .widget-sidber-contact-box {
-    /* background: url(../images/inner-images/sidber-contact.png); */
-    background-image: url(../new-images/androplus-doctor.webp);
+    position: relative;
+    background-image: url(../new-images/beautiful-fertility-concept.avif);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     border-radius: 5px;
     padding: 48px 43px 48px;
     height: 400px;
+    z-index: 1;
+    overflow: hidden;
 }
+
+.widget-sidber-contact-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(82, 193, 187, 0.3); /* Overlay with #52c1bb */
+    z-index: 0;
+    border-radius: 5px;
+}
+
+/* Ensure inner content appears above overlay */
+.widget-sidber-contact-box > * {
+    position: relative;
+    z-index: 1;
+}
+
 
 p.widget-sidber-contact-text {
     font-size: 18px;
